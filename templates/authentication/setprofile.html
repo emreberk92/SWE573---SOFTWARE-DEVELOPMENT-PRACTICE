@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Authentication</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <center>
+
+        <h1 style="color:black;">Welcome {{fname}}!</h1>
+
+        <h3>Set your Profile</h3>
+
+        <form action="/setprofile" method="post"> 
+        {% csrf_token %}
+            <label for="">Upload a Photo</label>
+            <input type="file" name="file" accept=".jpg, .png">
+            <br>
+            <label for="">Privacy Options (Choose one of them)</label>
+            <br>
+            <label for="">Private</label>
+            <input type="checkbox" id="text" name="text" >
+            <br>
+            <label for="">Followers</label>
+            <input type="checkbox" id="text" name="text" >
+            <br>    
+            <label for="">Public</label>
+            <input type="checkbox" id="text" name="text" >
+            <br>
+            <label for=""></label>
+            <input type="text" id="bio" name="bio" placeholder="Fill your bio!" required> <!-- id and username must be specified -->
+            <br>    
+            <br>         
+            <label for=""></label>
+            <input type="text" id="location" name="location" placeholder="Set your location" required> <!-- input type, id and username must be specified -->
+            <br>  
+            <br>   
+            <label for="">What are your interests? (Choose max 5.)</label>
+            <br>
+            <label for="">Sport</label>
+            <input type="checkbox" id="text" name="text" >
+            <br>
+            <label for="">Finance</label>
+            <input type="checkbox" id="text" name="text" >
+            <br>    
+            <label for="">Politics</label>
+            <input type="checkbox" id="text" name="text" >
+            <br>    
+            <label for="">Art</label>
+            <input type="checkbox" id="text" name="text" >
+            <br>    
+            <label for="">Books</label>
+            <input type="checkbox" id="text" name="text" >
+            <br>    
+            <label for="">Travelling</label>
+            <input type="checkbox" id="text" name="text" >
+            <br>    
+            <label for="">History</label>
+            <input type="checkbox" id="text" name="text" >
+            <br>    
+            <label for="">Movies</label>
+            <input type="checkbox" id="text" name="text" >
+            <br>    
+            <label for="">Theatre</label>
+            <input type="checkbox" id="text" name="text" >
+            <br>    
+            <label for="">Music</label>
+            <input type="checkbox" id="text" name="text" >
+            <br>    
+            <label for="">Crypto</label>
+            <input type="checkbox" id="text" name="text" >
+            <br>    
+            <button type="submit">Set my Profile</button>
+        </form>
+
+        </center>
+
+        <script src="" async defer></script>
+    </body>
+</html>

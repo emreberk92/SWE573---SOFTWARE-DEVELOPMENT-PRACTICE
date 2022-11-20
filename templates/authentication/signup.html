@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Authentication</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags}} alert-dismissable fade show" role="alert">
+        <strong>Message:</strong> {{message}}
+        <button type="=button" class="close" data-dismiss="alert" aria-label="Close">
+        ><span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        {% endfor %}
+   
+        <center>
+            
+        <h1 style="color:black;">Create an Account</h1>
+
+            <form action="/signup" method="post"> 
+            {% csrf_token %}
+            <label for="">Username</label>
+            <input type="text" id="username" name="username" placeholder="Create a username using only letters, numbers and underscore" required >
+            <br>            
+            <label for="">E-mail Adress</label>
+            <input type="email" id="email" name="email" placeholder="Enter a valid E-mail adress" required>
+            <br>    
+            <label for="">Date of Birth</label>
+            <input type="date" id="date" name="date" placeholder="You must be above 18 in order to register" required>
+            <br>    
+            <label for="">Password</label>
+            <input type="password" id="pass1" name="pass1" placeholder="Create a password" required>
+            <br>    
+            <label for="">Verify Password</label>
+            <input type="password" id="pass2" name="pass2" placeholder="Verify your password" required>
+            <br>    
+            <button type="submit">Sign Up</button>
+            </form>
+        </center>
+
+        <script src="" async defer></script>
+    </body>
+</html>
