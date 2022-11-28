@@ -22,28 +22,48 @@
         </button>
         </div>
         {% endfor %}
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
    
         <center>
             
         <h1 style="color:black;">Create an Account</h1>
+        <br>
 
             <form action="/signup" method="post"> 
-            {% csrf_token %}
-            <label for="">Username</label>
-            <input type="text" id="username" name="username" placeholder="Create a username using only letters, numbers and underscore" required >
-            <br>            
-            <label for="">E-mail Adress</label>
-            <input type="email" id="email" name="email" placeholder="Enter a valid E-mail adress" required>
-            <br>    
-            <label for="">Date of Birth</label>
-            <input type="date" id="date" name="date" placeholder="You must be above 18 in order to register" required>
-            <br>    
-            <label for="">Password</label>
-            <input type="password" id="pass1" name="pass1" placeholder="Create a password" required>
-            <br>    
-            <label for="">Verify Password</label>
-            <input type="password" id="pass2" name="pass2" placeholder="Verify your password" required>
-            <br>    
+            {% csrf_token %}            
+              <div class="form-group row justify-content-center">
+                <label for="username" class="col-sm-1 col-form-label">Username</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" id="username" name="username" placeholder="Create a username using only letters, numbers and underscore" required >
+                </div>
+              </div>   
+              <div class="form-group row justify-content-center">
+                <label for="email" class="col-sm-1 col-form-label">E-mail Adress</label>
+                <div class="col-sm-2">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter a valid E-mail adress" required>
+                </div>                
+              </div>
+              <div class="form-group row justify-content-center">
+                <label for="date" class="col-sm-1 col-form-label">Date of Birth</label>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control" id="date" name="date" placeholder="You must be above 18 in order to register" required>
+                </div>                
+              </div>
+              <div class="form-group row justify-content-center">
+                <label for="password" class="col-sm-1 col-form-label">Password</label>
+                <div class="col-sm-2">
+                    <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Create a password" required>
+                </div>                
+              </div>    
+              <div class="form-group row justify-content-center">
+                <label for="pass2" class="col-sm-1 col-form-label">Verify Password</label>
+                <div class="col-sm-2">
+                    <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Verify your password" required>
+                </div>                
+              </div>         
             <button type="submit">Sign Up</button>
             </form>
         </center>

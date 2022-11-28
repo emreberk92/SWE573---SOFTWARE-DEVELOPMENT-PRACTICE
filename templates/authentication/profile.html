@@ -14,14 +14,25 @@
     </head>
     <body>
 
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
         <center>
 
-        <h3>Welcome {{fname}}!</h3>
-
-        <form action="/profile" method="post"> 
-        {% csrf_token %}
-            
-        </form>
+        <h3>My Profile {{fname}}!</h3>
+        {% block title %}Profile Page{% endblock title %}
+        {% block content %}
+            <div class="row my-3 p-3">
+                <h1>This is the profile page for {{user.username}}</h1>
+            </div>
+        
+        {% endblock content %}
+        
+        <p>
+            <button type="submit"> <a href="/setprofile"> Change my Profile</a></button>
+            <button type="submit"> <a href="/"> Go to Homepage</a></button>
+        </p>
 
         </center>
 

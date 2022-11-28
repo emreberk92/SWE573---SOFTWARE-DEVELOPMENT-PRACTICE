@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <center>
+        
 
         {% for message in messages %}
         <div class="alert alert-{{ message.tags}} alert-dismissable fade show" role="alert">
@@ -24,23 +24,36 @@
         </div>
         {% endfor %}
 
-        <h1 style="color:black;">Login to Socall!</h1>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 
-        <form action="/signin" method="post"> 
-        {% csrf_token %}
-            <label for="">Username</label>
-            <input type="text" id="username" name="username" placeholder="Please enter your E-mail adress" required>
-            <br>    
-            <label for="">Password</label>
-            <input type="password" id="pass1" name="pass1" placeholder="Please enter your password" required>
-            <br>    
-            <button type="submit">Login</button>
-
-        </form>
-        <form action="/signup"> 
-        {% csrf_token %}
-            <button type="submit">Create an Account</button>    
-        </form>
+        <center>
+            
+            <h1 style="color:black;">Login to Socall!</h1>
+            <br>
+    
+                <form action="/signin" method="post"> 
+                {% csrf_token %}            
+                  <div class="form-group row justify-content-center">
+                    <label for="username" class="col-sm-1 col-form-label">Username</label>
+                    <div class="col-sm-2">
+                      <input type="text" class="form-control" id="username" name="username" placeholder="Please enter your user name" required >
+                    </div>
+                  </div>   
+                  <div class="form-group row justify-content-center">
+                    <label for="pass1" class="col-sm-1 col-form-label">Password</label>
+                    <div class="col-sm-2">
+                      <input type="password" class="form-control id="pass1" name="pass1" placeholder="Please enter your password" required>
+                    </div>                
+                  </div>
+                  <button type="submit" class="d-inline-block">Sign Up</button>
+                </form>
+                <br>                
+                <form action="/signup"> 
+                {% csrf_token %}
+                    <button type="submit"class="d-inline-block">Create an Account</button> 
+                </form>
 
          </center>
 

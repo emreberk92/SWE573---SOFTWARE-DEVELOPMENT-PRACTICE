@@ -25,10 +25,23 @@
         </div>
         {% endfor %}
          
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
         <h1 style="color:black;">Socall Application</h1>
+        <br>
         
         {% if user.is_authenticated%}
         <h3>Welcome {{fname}}!</h3>
+        <div class="form-group row justify-content-center">
+            <nav class="navbar navbar-light bg-light">
+                <form class="form-inline">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-5" type="submit">Search</button>
+                </form>
+              </nav>
+        </div>
         <button type="submit"> <a href="/profile"> Go to Profile</a></button>
         <button type="submit"> <a href="/setprofile"> Set your Profile</a></button>
         <button type="submit"> <a href="/signout"> Logout</a></button>

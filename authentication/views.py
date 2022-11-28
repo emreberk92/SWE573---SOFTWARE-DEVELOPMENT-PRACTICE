@@ -13,6 +13,9 @@ from django.utils.encoding import force_bytes, force_str
 #from . tokens import generate_token
 from django.core.mail import EmailMessage, send_mail
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+from django.template import loader
+
+
 
 # Call the app from cmd: python manage.py runserver
 
@@ -102,10 +105,11 @@ def setprofile(request): # Create user profile
     messages.success(request, "Your profile is successfully set!")    
     return render(request, "authentication/setprofile.html") # Call the form from login.html file
 
-def profile(request): # Create user profile
+def profile(request): # user profile
     if request.method == 'POST':
         return redirect('home')
     return render(request, "authentication/profile.html") # Call the form from login.html file
+
     
 #def activate(request, uidb64, token):
     try:
