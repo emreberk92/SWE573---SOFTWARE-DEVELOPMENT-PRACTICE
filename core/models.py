@@ -17,6 +17,7 @@ class Profile(models.Model):
         return self.user.username
 
 class Post(models.Model):
+    title = models.CharField(max_length=500,  default='SOME STRING')
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     user = models.CharField(max_length=50)
     photo = models.ImageField(upload_to='post_images')
@@ -40,3 +41,15 @@ class followersCount(models.Model):
 
     def __str__(self):
         return self.user
+
+class addComment(models.Model):
+    post = models.ForeignKey(Post, null=True, related_name="comments", on_delete=models.CASCADE )
+    user = models.CharField(max_length=50)
+    caption = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.post.title, self.user
+
+
+

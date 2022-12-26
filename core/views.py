@@ -3,7 +3,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import Profile, Post, likePost, followersCount
+from .models import Profile, Post, likePost, followersCount, addComment
 from itertools import chain
 import random
 
@@ -17,6 +17,7 @@ def index(request):
 
     user_following_list = []
     feed = []
+    feed_comment = []
 
     user_following = followersCount.objects.filter(follower=request.user.username)
 
@@ -25,9 +26,12 @@ def index(request):
 
     for usernames in user_following_list:
         feed_lists = Post.objects.filter(user=usernames)
+        feed_lists_comment = addComment.objects.filter(user=usernames)
         feed.append(feed_lists)
+        feed_comment.append(feed_lists_comment)
 
     feed_list = list(chain(*feed))
+    feed_list_comment = list(chain(*feed_comment))
 
     # posts = Post.objects.all()
     # user suggestions
@@ -55,7 +59,7 @@ def index(request):
 
     suggestions_username_profile_list = list(chain(*username_profile_list)) 
 
-    return render(request, 'index.html', {'user_profile': user_profile, 'posts':feed_list, 'suggestions_username_profile_list': suggestions_username_profile_list[:4]})
+    return render(request, 'index.html', {'user_profile': user_profile, 'posts': feed_list, 'comment': feed_list_comment, 'suggestions_username_profile_list': suggestions_username_profile_list[:4]})
 
 def signup(request):
 
@@ -160,6 +164,20 @@ def upload(request):
     else:
         return redirect('/')
 
+def upload_comment(request):
+
+    if request.method == 'POST':
+        user = request.user.username
+        caption = request.POST['caption']
+
+        new_post = addComment.objects.create(user=user, caption=caption)
+        new_post.save()
+
+        return redirect('/')
+    else:
+        return redirect('/')
+
+
 @login_required(login_url='signin')
 def like_post(request):
     username = request.user.username
@@ -248,6 +266,18 @@ def search(request):
 
         username_profile_list = list(chain(*username_profile_list))
     return render(request, 'search.html',{'user_profile': user_profile, 'username_profile_list': username_profile_list})
+
+@login_required(login_url='signin')
+def search_post(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        posts = Post.objects.filter(caption__icontains=searched)
+        user_object = User.objects.get(username=request.user.username)
+        user_profile = Profile.objects.get(user=user_object)
+
+        return render(request, 'search_post.html',{'user_profile': user_profile,'searched':searched, 'posts':posts})
+    else:
+        return render(request, 'search_post.html',{})
 
 def password(request):
 

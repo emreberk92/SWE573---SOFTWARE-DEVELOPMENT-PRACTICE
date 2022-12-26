@@ -26,7 +26,7 @@
 
             <header>                
                 <div class="header_inner">
-                    <form action="/search" method="POST">
+                    <form action="/search_post" method="POST">
                     {% csrf_token %}
                     <div class="left-side">
                         <!-- Logo -->
@@ -41,7 +41,7 @@
                         </div>-->
 
                         <!-- <div class="header_search"> -->
-                            <input type="text" name="username" placeholder="Search for an username...">&nbsp; &nbsp;
+                            <input type="text" name="searched" placeholder="Search post ...">&nbsp; &nbsp;
                             <button type="submit"><i class="fa fa-search fa-1x"></i></button>
                         <!-- </div> -->
                     </div>
@@ -125,6 +125,7 @@
                                     </a>
                                     {% endif %}
                                 </div>
+                                <hr>
 
                                 <div class="flex space-x-4 lg:font-bold">
                                     <a href="/like_post?post_id={{post.id}}" class="flex items-center space-x-2">
@@ -153,7 +154,35 @@
                                     </a>
                                     {% endif %}
                                 </div>
-   
+
+                                <hr>
+                                <h2><strong>Comments</strong></h2>
+                                <br/>
+                                {% if not post.comments.all %}
+                                    No comments yet ... 
+                                {% else %}
+                                    {% for comment in post.comments.all %}
+                                        <strong>
+                                            {{comment.user}} - {{comment.date_added}}
+                                        </strong>
+                                        <br/>
+                                        {{comment.caption}}
+                                        <br/>
+
+                                    {% endfor %}  
+                                {% endif %}
+                                <br/><br/>
+                                </hr>
+                                <form action="upload_comment" method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <!-- <p class="my-3 leading-6"> Upload a photo 
+                                    </p> -->
+                                        <!--<a href="#" class="button soft-warning small"> Choose file</a>-->
+                                        <textarea class="button soft-warning small" name="caption" placeholder="Write something..."></textarea>
+                                        <button class="button bg-blue-700" type="=submit">Comment</button>
+                                        
+                                </form>
+                                <br/>
                             </div>
     
                         </div>
