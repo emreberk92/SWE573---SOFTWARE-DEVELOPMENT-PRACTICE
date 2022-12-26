@@ -5,3 +5,10 @@ The contect of this repository is filled up with the weekly tasks assgined by th
 ## URL to Repository 
 Please use the following command to open this repository: <br/>
 `git clone https://github.com/emreberk92/SWE573---SOFTWARE-DEVELOPMENT-PRACTICE.git`
+
+<!-- ABOUT THE PROJECT -->
+
+### Built With
+
+- [![Django][django-image]][django-url]
+- [![Bootstrap][bootstrap-image]][bootstrap-url]
