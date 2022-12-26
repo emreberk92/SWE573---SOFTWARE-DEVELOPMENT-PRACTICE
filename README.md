@@ -12,3 +12,8 @@ Please use the following command to open this repository: <br/>
 
 - [![Django][django-image]][django-url]
 - [![Bootstrap][bootstrap-image]][bootstrap-url]
+
+[django-image]: https://img.shields.io/badge/Django-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[django-url]: https://www.djangoproject.com/
+[bootstrap-image]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[bootstrap-url]: https://getbootstrap.com
