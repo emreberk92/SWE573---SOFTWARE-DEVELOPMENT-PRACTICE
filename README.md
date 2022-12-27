@@ -22,4 +22,7 @@ Following tools have been used to create this web application.
 
 ## Important Information - Please read before downloading the code!
 
-git push via terminal throws localhost error, therefore venv (environmental files) are uploaded in zip format via manually upload feature (since it has hundreds of files within). Please unzip the venv file in the main project directory before executing the code.   
+git push via terminal throws localhost error, therefore venv (environmental files) are uploaded in zip format via manually upload feature (since it has hundreds of files within). Please unzip the venv file in the main project directory before executing the code. After unzipping venv, the project directory should look like this:
+
+![image](https://user-images.githubusercontent.com/115401843/209671299-7da17bba-f363-4c37-ba73-8812fd82a9eb.png)
+
