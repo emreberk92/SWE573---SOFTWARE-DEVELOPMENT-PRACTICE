@@ -8,7 +8,9 @@ Please use the following command to open this repository: <br/>
 
 <!-- ABOUT THE PROJECT -->
 
-### Built With
+## Built With
+
+Following tools have been used to create this web application.
 
 - [![Django][django-image]][django-url]
 - [![Bootstrap][bootstrap-image]][bootstrap-url]
