@@ -17,3 +17,7 @@ Please use the following command to open this repository: <br/>
 [django-url]: https://www.djangoproject.com/
 [bootstrap-image]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [bootstrap-url]: https://getbootstrap.com
+
+## Important Information - Please read before downloading the code!
+
+git push via terminal throws localhost error, therefore venv (environmental files) are uploaded in zip format via manually upload feature (since it has hundreds of files within). Please unzip the venv file in the main project directory before executing the code.   
